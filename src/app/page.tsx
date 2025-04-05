@@ -1,10 +1,6 @@
 import Link from "next/link";
 import {
   Download,
-  ChevronRight,
-  Star,
-  Shield,
-  Zap,
   Github,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -12,9 +8,8 @@ import { ThemeToggle } from "@/components/themeToggle";
 import { MenuBar } from "@/components/menuBar";
 import { Spotlight } from "@/components/ui/Spotlight";
 import DownloadSection from "@/components/DownloadSection";
-import AboutSection from "@/components/AboutSection";
-import HeroSection from "@/components/HeroSection";
-import { TeamSection } from "@/components/TeamMemberSection";
+import {AboutSection} from "@/components/AboutSection";
+import {HeroSection} from "@/components/HeroSection";
 import { FeaturesSection } from "@/components/FeaturesSection";
 import { AdvancedFeaturesSection } from "@/components/AdvanceFeatures";
 
@@ -37,12 +32,12 @@ export default function Home() {
             </div>
             
           </div>
-          <div className="flex flex-1 items-center justify-end space-x-4">
+          <div className="flex flex-1 items-center justify-end space-x-7">
             <nav className="flex items-center space-x-2">
               <ThemeToggle />
               <Button asChild variant="outline">
                 <Link
-                  href="https://github.com"
+                  href="https://github.com/akash1047/firefly"
                   target="_blank"
                   rel="noreferrer"
                 >
@@ -73,9 +68,6 @@ export default function Home() {
       {/* Advanced features section */}
       <AdvancedFeaturesSection/>
 
-      {/* Details of team member */}
-      <TeamSection/>
-
       {/* Download  */}
         <DownloadSection/>
       </main>
@@ -97,7 +89,7 @@ export default function Home() {
             <div className="flex flex-col items-end justify-end space-y-4">
               <div className="flex space-x-4">
                 <Link
-                  href="https://github.com"
+                  href="https://github.com/akash1047/firefly"
                   className="text-muted-foreground hover:text-foreground"
                 >
                   <svg
