@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button"
 const menuItems = [
   {
     label: "Home",
-    href: "#",
+    href: "/",
   },
   {
     label: "Features",
@@ -21,6 +21,10 @@ const menuItems = [
   {
     label: "Advanced",
     href: "#advanced-features",
+  },
+  {
+    label: "Customize",
+    href: "/customize",
   },
 ]
 
