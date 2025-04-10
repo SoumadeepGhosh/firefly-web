@@ -47,7 +47,7 @@ export function DownloadSection() {
         if (!binAsset) throw new Error("No .bin file found in the latest release")
 
         setLatestReleaseUrl(binAsset.browser_download_url)
-        setReleaseVersion(latestRelease.tag_name || "v0.1.0")
+        setReleaseVersion(latestRelease?.tag_name ?? "v0.1.0")
 
         const date = new Date(latestRelease.created_at)
         setReleaseDate(

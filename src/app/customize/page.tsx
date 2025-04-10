@@ -191,10 +191,13 @@ type GitHubAsset = {
     tag_name: string
     assets: GitHubAsset[]
   }
+  type Config = {
+  [key: string]: string | boolean
+}
 
 export default function CustomizePage() {
   // Initialize with values from lscpu output
-  const [config, setConfig] = useState({
+  const [config, setConfig] = useState<Config>({
     "llvm-target": "x86_64-unknown-none",
     "data-layout": "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128",
     arch: "x86_64",
@@ -284,7 +287,7 @@ export default function CustomizePage() {
     setJsonString(JSON.stringify(config, null, 2))
   }, [config])
 
-  const updateConfig = (key:any, value:any) => {
+  const updateConfig = (key: keyof typeof config, value: string | boolean) => {
     setConfig((prev) => {
       const newConfig = { ...prev, [key]: value }
 
@@ -310,7 +313,7 @@ export default function CustomizePage() {
     })
   }
 
-  const handleArchSelect = (value:any) => {
+  const handleArchSelect = (value: string) => {
     setSheetOpen(false)
     updateConfig("arch", value)
   }
@@ -333,11 +336,13 @@ export default function CustomizePage() {
     setTimeout(() => setCopied(false), 2000)
   }
 
-  const toggleFlag = (flag:any) => {
+  const toggleFlag = (flag:string) => {
     setSelectedFlags((prev) => (prev.includes(flag) ? prev.filter((f) => f !== flag) : [...prev, flag]))
   }
 
   const displayedFlags = showAllFlags ? cpuFlags : cpuFlags.slice(0, 12)
+
+
 
   return (
     <div className="min-h-screen bg-[#e4e5f1] dark:bg-muted/20">
@@ -815,7 +820,8 @@ export default function CustomizePage() {
                         animate={{ y: 0, opacity: 1 }}
                         transition={{ delay: 0.4 }}
                       >
-                        {config.arch.toUpperCase()}
+                        {typeof config.arch === "string" ? config.arch.toUpperCase() : "Unknown Architecture"}
+
                       </motion.h3>
 
                       <motion.div

@@ -2,7 +2,7 @@
 
 import Link from "next/link"
 import { motion } from "framer-motion"
-import { Settings, Cpu, ChevronRight } from "lucide-react"
+import { Settings, Cpu } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function CustomizeSection() {

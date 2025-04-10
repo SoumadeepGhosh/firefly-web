@@ -12,15 +12,15 @@ const menuItems = [
   },
   {
     label: "Features",
-    href: "#features",
+    href: "/#features",
   },
   {
     label: "About",
-    href: "#about",
+    href: "/#about",
   },
   {
     label: "Advanced",
-    href: "#advanced-features",
+    href: "/#advanced-features",
   },
   {
     label: "Customize",
