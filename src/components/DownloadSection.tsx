@@ -18,7 +18,6 @@ type GitHubRelease = {
 }
 
 export function DownloadSection() {
-  const [copied, setCopied] = useState(false)
   const [latestReleaseUrl, setLatestReleaseUrl] = useState(
     "https://github.com/akash1047/firefly/releases/download/v0.1.0/bootimage-firefly.bin",
   )
@@ -59,15 +58,20 @@ export function DownloadSection() {
         )
 
         setError("")
-      } catch (err: any) {
+      } catch (err) {
         console.error("Error fetching release:", err)
-        setError(err.message || "Failed to fetch latest release")
+  
+        const errorMessage = err instanceof Error
+          ? err.message
+          : "Failed to fetch latest release"
+  
+        setError(errorMessage)
         setReleaseDate("April 2023")
       } finally {
         setIsLoading(false)
       }
     }
-
+  
     fetchLatestRelease()
   }, [])
 

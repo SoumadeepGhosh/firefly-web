@@ -342,7 +342,17 @@ export default function CustomizePage() {
 
   const displayedFlags = showAllFlags ? cpuFlags : cpuFlags.slice(0, 12)
 
-
+  {isLoading && (
+    <div className="text-sm text-muted-foreground mb-4">
+      Fetching the latest release...
+    </div>
+  )}
+  
+  {error && (
+    <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md text-red-700 dark:text-red-300 text-sm mb-4">
+      {error}
+    </div>
+  )}
 
   return (
     <div className="min-h-screen bg-[#e4e5f1] dark:bg-muted/20">
@@ -547,7 +557,7 @@ export default function CustomizePage() {
                     <Server className="h-5 w-5 text-amber-500" />
                     CPU Details
                   </CardTitle>
-                  <CardDescription>Based on your system's CPU information</CardDescription>
+                  <CardDescription>Based on your system&apos;s CPU information</CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-4">
                   <div className="space-y-2">
