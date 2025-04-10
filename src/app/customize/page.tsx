@@ -342,17 +342,16 @@ export default function CustomizePage() {
 
   const displayedFlags = showAllFlags ? cpuFlags : cpuFlags.slice(0, 12)
 
-  {isLoading && (
+  if (isLoading) {
     <div className="text-sm text-muted-foreground mb-4">
       Fetching the latest release...
     </div>
-  )}
-  
-  {error && (
+  }
+  if (error) {
     <div className="p-3 bg-red-50 dark:bg-red-900/20 border border-red-200 dark:border-red-800 rounded-md text-red-700 dark:text-red-300 text-sm mb-4">
-      {error}
-    </div>
-  )}
+    {error}
+  </div>
+  }
 
   return (
     <div className="min-h-screen bg-[#e4e5f1] dark:bg-muted/20">
@@ -427,8 +426,8 @@ export default function CustomizePage() {
           }}
         />
 
-        {error && (
-          <motion.div
+        if (error) {
+            <motion.div
             className="mb-6 p-4 bg-red-100 dark:bg-red-900/30 border border-red-200 dark:border-red-800 rounded-md text-red-800 dark:text-red-200"
             initial={{ opacity: 0, y: -10 }}
             animate={{ opacity: 1, y: 0 }}
@@ -436,8 +435,7 @@ export default function CustomizePage() {
             <p>Error: {error}</p>
             <p className="text-sm mt-1">Using fallback download link.</p>
           </motion.div>
-        )}
-
+        }
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-3 gap-8"
           variants={containerVariants}
