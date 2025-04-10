@@ -21,7 +21,7 @@ export default function CustomizeLayout({
     <div className="flex min-h-screen flex-col">
       <header className="sticky top-0 z-40 w-full border-b bg-white/80 dark:bg-background/80 backdrop-blur-sm">
         <div className="container flex h-16 items-center justify-between">
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 min-h-screen  pl-8">
             <Link href="/" className="flex items-center space-x-2">
               <div className="h-8 w-8 rounded-full bg-gradient-to-r from-orange-500 via-amber-500 to-yellow-500"></div>
               <span className="inline-block font-bold">FireflyOS</span>
